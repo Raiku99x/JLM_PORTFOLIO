@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | John Lhoe Morillo</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
 </head>
 <body>
     <!-- Navigation -->
@@ -248,7 +256,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 John Lhoe Morillo. Crafted with passion and code.</p>
+                <p>&copy; 2025 John Lhoel Morillo.</p>
             </div>
         </div>
     </footer>
@@ -275,13 +283,35 @@
 
         // Theme toggle
         const themeToggle = document.getElementById("themeToggle");
-        document.documentElement.setAttribute("data-theme", "dark");
 
-        themeToggle.addEventListener("click", () => {
-            const currentTheme = document.documentElement.getAttribute("data-theme");
-            const newTheme = currentTheme === "dark" ? "light" : "dark";
-            document.documentElement.setAttribute("data-theme", newTheme);
-        });
+function initializeTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+  
+  document.documentElement.setAttribute('data-theme', theme);
+  
+  if (!savedTheme) {
+    localStorage.setItem('theme', theme);
+  }
+}
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  const savedTheme = localStorage.getItem('theme');
+  if (!savedTheme) {
+    const newTheme = e.matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+  }
+});
+
+themeToggle.addEventListener("click", () => {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem('theme', newTheme);
+});
+
+initializeTheme();
 
         // Navbar scroll effect
         const navbar = document.getElementById("navbar");
