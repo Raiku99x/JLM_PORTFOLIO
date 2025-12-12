@@ -1,140 +1,375 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Raiku — About</title>
-  <meta name="description" content="Raiku (Lhoel Morillo) — frontend projects, portfolio, and contact"/>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John LhoeL Morillo | BSCS Student & Developer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme-dark">
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="./index.html">
-        <div class="logo">R</div>
-        <div class="brand-text">
-          <h1>Raiku</h1>
-          <p class="muted">Frontend developer • BSCS student</p>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">JLM<span>.</span></a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="theme-toggle" id="themeToggle">
+                <span class="sun">☀️</span>
+                <span class="moon">🌙</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-      </a>
+    </nav>
 
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="./index.html" class="nav-link active">Home</a>
-        <a href="./projects.html" class="nav-link">Projects</a>
-        <a href="./contact.html" class="nav-link">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="wrap main-grid">
-    <!-- Hero / About -->
-    <section class="card hero">
-      <div class="hero-left">
-        <h2>Hi — I'm <span class="accent">Raiku</span></h2>
-        <p class="lead">I build interactive frontend projects, learning through making. I like clean UI, subtle motion, and creative tools that help artists & students stay productive.</p>
-
-        <div class="meta-row">
-          <div>
-            <strong>Role</strong>
-            <div class="muted">Frontend Developer / BSCS</div>
-          </div>
-          <div>
-            <strong>Location</strong>
-            <div class="muted">Philippines</div>
-          </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="gradient-circle circle-1"></div>
+            <div class="gradient-circle circle-2"></div>
+            <div class="gradient-circle circle-3"></div>
         </div>
-
-        <div class="hero-actions">
-          <a class="btn primary" href="./projects.html">View Projects</a>
-          <a class="btn ghost" href="./contact.html">Contact / Resume</a>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting">Hi, I'm</p>
+                <h1 class="hero-name">John Lhoe A. Morillo</h1>
+                <div class="hero-title">
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    A passionate Computer Science student at Camarines Sur Polytechnic Colleges, 
+                    crafting interactive web experiences and exploring the endless possibilities of code. 
+                    From productivity tools to creative applications, I turn ideas into reality through clean, 
+                    functional design.
+                </p>
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn btn-primary">View My Work</a>
+                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/Raiku99x" target="_blank" class="social-link" aria-label="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/lhoel-morillo-012a12399/" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
-
-        <div class="social-row">
-          <a href="https://github.com/Raiku99x" target="_blank" class="link-under">GitHub</a>
-          <a href="#" class="link-under">LinkedIn</a>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="scroll-arrow"></div>
         </div>
-      </div>
-
-      <aside class="hero-right">
-        <div class="avatar-wrap">
-          <img src="./assets/profile.jpg" alt="Profile photo" class="avatar"/>
-        </div>
-
-        <div class="glass-box">
-          <h4>Quick stats</h4>
-          <ul class="stats">
-            <li><strong>5</strong><span class="muted">projects</span></li>
-            <li><strong>3</strong><span class="muted">languages</span></li>
-            <li><strong>100%</strong><span class="muted">responsive</span></li>
-          </ul>
-        </div>
-      </aside>
     </section>
 
-    <!-- Featured project -->
-    <section class="card featured">
-      <h3 class="section-title">Featured — Kanban Dashboard</h3>
-      <div class="featured-body">
-        <p class="muted">A lightweight and accessible Kanban board. A clean UI with localStorage persistence.</p>
-        <div class="actions">
-          <a class="btn primary" href="https://raiku99x.github.io/Kanban_Dashboard/" target="_blank">Open Live</a>
-          <a class="btn ghost" href="https://github.com/Raiku99x/Kanban_Dashboard.git" target="_blank">View Repo</a>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Education</h3>
+                    <p><strong>Camarines Sur Polytechnic Colleges</strong></p>
+                    <p>Bachelor of Science in Computer Science</p>
+                    <p class="year">Current</p>
+                    <div class="divider"></div>
+                    <p><strong>Malawag National High School</strong></p>
+                    <p>Graduated with High Honor</p>
+                    <p class="year">2024</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🏆</div>
+                    <h3>Achievements</h3>
+                    <ul class="achievements-list">
+                        <li>Second Highest Grade</li>
+                        <li>Excellence Award in Mathematics</li>
+                        <li>Excellence Award in English</li>
+                        <li>Excellence Award in History</li>
+                        <li>Artist of the Year Award</li>
+                    </ul>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">💡</div>
+                    <h3>Currently Learning</h3>
+                    <p>Expanding my horizons with modern web technologies and frameworks</p>
+                    <div class="learning-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Next.js</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Short project tiles -->
-    <section class="card grid-cards">
-      <h3 class="section-title">Other Projects</h3>
-      <div class="grid small-grid">
-
-        <article class="project-card" data-live="https://raiku99x.github.io/QUIZ_MUST/">
-          <div class="thumb"><img src="./assets/project-quiz.jpg"></div>
-          <h4>Quiz App</h4>
-          <p class="muted">Timed quizzes with categories.</p>
-        </article>
-
-        <article class="project-card" data-live="https://raiku99x.github.io/CARD_MEMORY_MATCH/">
-          <div class="thumb"><img src="./assets/project-card.jpg"></div>
-          <h4>Card Memory Match</h4>
-          <p class="muted">Single & multiplayer modes.</p>
-        </article>
-
-        <article class="project-card" data-live="https://raiku99x.github.io/POMODORO_TIMER/">
-          <div class="thumb"><img src="./assets/project-pomo.jpg"></div>
-          <h4>Pomodoro Timer</h4>
-          <p class="muted">Focus cycles + breaks.</p>
-        </article>
-
-        <article class="project-card" data-live="https://raiku99x.github.io/ARTSTREAK4_LAZYARTIST/">
-          <div class="thumb"><img src="./assets/project-streak.jpg"></div>
-          <h4>Streak Art</h4>
-          <p class="muted">Daily/weekly art streaks.</p>
-        </article>
-
-      </div>
+    <!-- Skills Section -->
+    <section class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+                        </svg>
+                    </div>
+                    <h3>HTML5</h3>
+                    <p>Semantic markup & structure</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/>
+                        </svg>
+                    </div>
+                    <h3>CSS3</h3>
+                    <p>Responsive design & animations</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+                        </svg>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>Interactive functionality</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                        </svg>
+                    </div>
+                    <h3>Git & GitHub</h3>
+                    <p>Version control</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/>
+                        </svg>
+                    </div>
+                    <h3>React</h3>
+                    <p>Learning</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/>
+                        </svg>
+                    </div>
+                    <h3>Node.js</h3>
+                    <p>Learning</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer class="card footer-card">
-      <p class="muted small">© Raiku — HTML/CSS Portfolio • CCCS 101 Final Project</p>
+    <!-- Featured Projects Preview -->
+    <section class="projects-preview">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A showcase of my recent work and creative experiments</p>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">🎯</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Kanban Dashboard</h3>
+                        <p>A drag-and-drop task management board for organizing workflows efficiently</p>
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>CSS</span>
+                            <span>HTML</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">❓</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Quiz App</h3>
+                        <p>Interactive quiz application with score tracking and multiple categories</p>
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>CSS</span>
+                            <span>HTML</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">🃏</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Card Memory Match</h3>
+                        <p>Classic memory card game with smooth animations and difficulty levels</p>
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>CSS</span>
+                            <span>HTML</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="text-center">
+                <a href="projects.html" class="btn btn-primary">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>John Lhoe Morillo</h3>
+                    <p>BSCS Student passionate about creating meaningful digital experiences</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <a href="https://github.com/Raiku99x" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/lhoel-morillo-012a12399/" target="_blank">LinkedIn</a>
+                    <a href="mailto:john.lmorillo@my.cspc.edu.ph">Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 John Lhoe Morillo. Crafted with passion and code.</p>
+            </div>
+        </div>
     </footer>
-  </main>
 
-  <script>
-    // Make project tiles clickable
-    document.querySelectorAll('.project-card').forEach(card=>{
-      card.addEventListener('click', ()=> {
-        window.open(card.dataset.live, '_blank');
-      });
-    });
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
-    // Active nav link fix
-    const page = location.pathname.split('/').pop();
-    document.querySelectorAll('.nav-link').forEach(a=>{
-      if(a.getAttribute("href").includes(page)) {
-        a.classList.add("active");
-      }
-    });
-  </script>
+    <script>
+        // Typing Animation
+        const texts = ["BSCS Student", "Web Developer", "Creative Coder", "Problem Solver"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById("typingText");
+
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(type, speed);
+        }
+
+        type();
+
+        // Navbar scroll effect
+        const navbar = document.getElementById("navbar");
+        let lastScroll = 0;
+
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll(".nav-link").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            });
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById("themeToggle");
+        document.documentElement.setAttribute("data-theme", "dark");
+
+        themeToggle.addEventListener("click", () => {
+            const currentTheme = document.documentElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", newTheme);
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add("visible");
+            } else {
+                backToTop.classList.remove("visible");
+            }
+        });
+
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -100px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll(".about-card, .skill-card, .project-card").forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
