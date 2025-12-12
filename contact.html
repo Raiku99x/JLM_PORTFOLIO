@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Raiku — Contact</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="theme-dark">
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./index.html">
+      <div class="logo">R</div>
+      <div class="brand-text">
+        <h1>Raiku</h1>
+        <p class="muted">Contact & Resume</p>
+      </div>
+    </a>
+
+    <nav class="site-nav">
+      <a href="./index.html" class="nav-link">Home</a>
+      <a href="./projects.html" class="nav-link">Projects</a>
+      <a href="./contact.html" class="nav-link active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap main-grid">
+
+  <section class="card contact-grid">
+    
+    <div class="contact-left">
+      <h2>Contact Me</h2>
+      <p class="muted">Send a message or view my socials.</p>
+
+      <form class="form" onsubmit="event.preventDefault(); alert('Demo form only.');">
+        <label>
+          <span class="label">Your Name</span>
+          <input type="text" required>
+        </label>
+
+        <label>
+          <span class="label">Email</span>
+          <input type="email" required>
+        </label>
+
+        <label>
+          <span class="label">Message</span>
+          <textarea rows="5" required></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button class="btn primary">Send</button>
+          <a class="btn ghost" target="_blank" href="https://github.com/Raiku99x">Message on GitHub</a>
+        </div>
+      </form>
+    </div>
+
+    <aside class="contact-right">
+
+      <div class="card resume">
+        <h3>Resume</h3>
+        <p><strong>Raiku (Lhoel Morillo)</strong></p>
+        <p class="muted">BS Computer Science</p>
+
+        <h4>Skills</h4>
+        <ul class="skills">
+          <li>HTML5 & Semantic Structure</li>
+          <li>CSS3 • Flexbox • Grid</li>
+          <li>JavaScript & DOM</li>
+          <li>Responsive UI design</li>
+        </ul>
+
+        <h4>Education</h4>
+        <p class="muted">BSCS — Camarines Sur Polytechnic Colleges</p>
+
+        <h4>Experience</h4>
+        <ul class="muted">
+          <li>Built 5 frontend projects</li>
+          <li>GitHub Pages deployment</li>
+        </ul>
+      </div>
+
+      <div class="card quick-links">
+        <h4>Quick Links</h4>
+        <a class="link-under" href="https://raiku99x.github.io/Kanban_Dashboard/" target="_blank">Kanban</a>
+        <a class="link-under" href="https://github.com/Raiku99x" target="_blank">GitHub Profile</a>
+      </div>
+
+    </aside>
+
+  </section>
+
+  <footer class="card footer-card">
+    <p class="muted small">© Raiku — Built for CCCS 101 Final Exam</p>
+  </footer>
+
+</main>
+
+<script>
+  const page = location.pathname.split('/').pop();
+  document.querySelectorAll('.nav-link').forEach(a=>{
+    if(a.getAttribute("href").includes(page)){
+      a.classList.add("active");
+    }
+  });
+</script>
+
+</body>
+</html>

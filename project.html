@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Raiku — Projects</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="theme-dark">
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./index.html">
+      <div class="logo">R</div>
+      <div class="brand-text">
+        <h1>Raiku</h1>
+        <p class="muted">Project Gallery</p>
+      </div>
+    </a>
+
+    <nav class="site-nav">
+      <a href="./index.html" class="nav-link">Home</a>
+      <a href="./projects.html" class="nav-link active">Projects</a>
+      <a href="./contact.html" class="nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap main-grid">
+  <section class="card">
+    <h2 class="section-title">All Projects</h2>
+    <p class="muted">Click cards to view live demos. Double-click repo buttons to copy link.</p>
+
+    <div class="grid project-grid">
+
+      <article class="card project">
+        <div class="project-thumb">
+          <svg width="120" height="80" viewBox="0 0 24 24" stroke="white">
+            <rect x="1" y="4" width="6" height="16" rx="1"/>
+            <rect x="9" y="8" width="6" height="12" rx="1"/>
+            <rect x="17" y="2" width="6" height="18" rx="1"/>
+          </svg>
+        </div>
+        <h3>Kanban Dashboard</h3>
+        <p class="muted">Task organizer with clean UI.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://raiku99x.github.io/Kanban_Dashboard/" target="_blank">Open Live</a>
+          <a class="btn ghost repo" href="https://github.com/Raiku99x/Kanban_Dashboard.git">View Repo</a>
+        </div>
+      </article>
+
+      <article class="card project">
+        <div class="project-thumb">
+          <svg width="120" height="80" viewBox="0 0 24 24" stroke="white">
+            <circle cx="12" cy="7" r="3"/>
+            <path d="M6 20c1.5-4 10.5-4 12 0"/>
+          </svg>
+        </div>
+        <h3>Quiz App</h3>
+        <p class="muted">Timed quizzes, categories.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://raiku99x.github.io/QUIZ_MUST/" target="_blank">Open Live</a>
+          <a class="btn ghost repo" href="https://github.com/Raiku99x/QUIZ_MUST.git">View Repo</a>
+        </div>
+      </article>
+
+      <article class="card project">
+        <div class="project-thumb">
+          <svg width="120" height="80" viewBox="0 0 24 24" stroke="white">
+            <rect x="3" y="4" width="18" height="14" rx="2"/>
+            <path d="M8 9h8"/>
+          </svg>
+        </div>
+        <h3>Card Memory Match</h3>
+        <p class="muted">Single/multiplayer.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://raiku99x.github.io/CARD_MEMORY_MATCH/" target="_blank">Open Live</a>
+          <a class="btn ghost repo" href="https://github.com/Raiku99x/CARD_MEMORY_MATCH.git">View Repo</a>
+        </div>
+      </article>
+
+      <article class="card project">
+        <div class="project-thumb">
+          <svg width="120" height="80" viewBox="0 0 24 24" stroke="white">
+            <circle cx="12" cy="12" r="8"/>
+            <path d="M12 8v5l3 1"/>
+          </svg>
+        </div>
+        <h3>Pomodoro Timer</h3>
+        <p class="muted">Focus cycles.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://raiku99x.github.io/POMODORO_TIMER/" target="_blank">Open Live</a>
+          <a class="btn ghost repo" href="https://github.com/Raiku99x/QUIZ_MUST.git">View Repo</a>
+        </div>
+      </article>
+
+      <article class="card project">
+        <div class="project-thumb">
+          <svg width="120" height="80" viewBox="0 0 24 24" stroke="white">
+            <path d="M3 21c2-6 18-6 20 0"/>
+            <circle cx="6" cy="8" r="2"/>
+          </svg>
+        </div>
+        <h3>Streak Art</h3>
+        <p class="muted">Daily/weekly streak.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://raiku99x.github.io/ARTSTREAK4_LAZYARTIST/" target="_blank">Open Live</a>
+          <a class="btn ghost repo" href="https://github.com/Raiku99x/ARTSTREAK4_LAZYARTIST.git">View Repo</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="card footer-card">
+    <p class="muted small">Portfolio by Raiku • CCCS 101</p>
+  </footer>
+</main>
+
+<script>
+  // Copy repo link
+  document.querySelectorAll('.repo').forEach(btn=>{
+    btn.addEventListener('dblclick', ()=>{
+      navigator.clipboard.writeText(btn.href);
+      const old = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(()=> btn.textContent = old, 900);
+    });
+  });
+
+  // Make card clickable
+  document.querySelectorAll('.project').forEach(card=>{
+    card.addEventListener('click', e=>{
+      if(e.target.closest('a')) return;
+      card.querySelector('.btn.primary').click();
+    });
+  });
+
+  // Active link fix
+  const page = location.pathname.split('/').pop();
+  document.querySelectorAll('.nav-link').forEach(a=>{
+    if(a.getAttribute("href").includes(page)){
+      a.classList.add("active");
+    }
+  });
+</script>
+
+</body>
+</html>

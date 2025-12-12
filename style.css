@@ -1,0 +1,142 @@
+/* style.css - Dark neon / Glassmorphism theme for Raiku portfolio */
+
+/* ---------- variables ---------- */
+:root{
+  --bg: #071126;
+  --bg-2: #071427;
+  --card: rgba(255,255,255,0.03);
+  --glass: rgba(255,255,255,0.04);
+  --glass-2: rgba(255,255,255,0.02);
+  --muted: #9fb0c8;
+  --text: #e6f0ff;
+  --accent: linear-gradient(90deg,#7c3aed,#06b6d4);
+  --accent-color: #7c3aed;
+  --radius: 14px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: linear-gradient(180deg,var(--bg), #021021 60%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:28px 18px;
+  font-size:15px;
+  line-height:1.45;
+}
+
+/* ---------- layout wrap ---------- */
+.wrap{max-width:1100px;margin:0 auto}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+
+/* ---------- header & nav ---------- */
+.site-header{position:sticky;top:0;padding:12px 0;background:linear-gradient(180deg, rgba(2,6,23,0.2), transparent);backdrop-filter: blur(6px);z-index:40}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.logo{width:56px;height:56px;border-radius:12px;background:var(--accent-color);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:20px;box-shadow:0 10px 30px rgba(124,58,237,0.15)}
+.brand-text h1{margin:0;font-size:18px}
+.brand-text .muted{margin:0;font-size:13px;color:var(--muted)}
+
+.site-nav{display:flex;gap:12px;align-items:center}
+.site-nav .nav-link{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600;border:1px solid transparent}
+.site-nav .nav-link:hover{color:var(--text);background:rgba(255,255,255,0.02);border-color:rgba(255,255,255,0.02)}
+.site-nav .nav-link.active{background:var(--glass);border:1px solid var(--glass-2);color:var(--text)}
+
+/* ---------- cards & sections ---------- */
+.main-grid{display:grid;gap:18px;margin-top:20px;grid-template-columns:1fr}
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radius);
+  padding:18px;
+  border:1px solid var(--glass-2);
+  box-shadow:0 8px 30px rgba(2,6,23,0.6);
+  overflow:hidden;
+}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start}
+.hero-left h2{margin:0;font-size:28px}
+.accent{background:var(--accent);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);margin-top:10px}
+.meta-row{display:flex;gap:18px;margin-top:14px}
+.meta-row strong{display:block}
+.hero-actions{margin-top:16px;display:flex;gap:12px}
+.social-row{margin-top:12px;display:flex;gap:8px}
+.link-under{text-decoration:underline;color:var(--muted);font-size:14px}
+
+/* avatar & quick stat */
+.avatar-wrap{display:flex;justify-content:center;margin-bottom:12px}
+.avatar{width:160px;height:160px;border-radius:14px;object-fit:cover;border:1px solid rgba(255,255,255,0.04);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+.glass-box{padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-2);margin-top:12px}
+.stats{display:flex;gap:12px;list-style:none;padding:0;margin:8px 0 0}
+.stats li{display:flex;flex-direction:column;align-items:center;min-width:60px}
+.stats li strong{font-size:18px}
+
+/* small grids */
+.grid-cards .small-grid{margin-top:12px}
+.small-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.project-card{padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);cursor:pointer;transition:transform .22s ease, box-shadow .22s ease}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.6)}
+.project-card .thumb{height:120px;border-radius:10px;overflow:hidden;background:linear-gradient(90deg, rgba(124,58,237,0.14), rgba(6,182,212,0.04));display:flex;align-items:center;justify-content:center}
+.project-card img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* project grid */
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px}
+.project .project-thumb{height:110px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg, rgba(124,58,237,0.12), rgba(6,182,212,0.04))}
+.card-body h3{margin:10px 0 6px}
+
+/* buttons */
+.btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-weight:700;text-decoration:none;display:inline-flex;gap:8px;align-items:center;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,#7c3aed,#06b6d4);color:white;border:none;box-shadow:0 8px 28px rgba(124,58,237,0.14)}
+.btn.ghost{background:transparent;color:var(--muted)}
+.btn.small{padding:6px 8px;font-size:13px}
+
+/* featured */
+.featured-body{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.section-title{margin:0 0 10px;font-size:16px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+.form label{display:block;margin-bottom:12px}
+.form input,.form textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--text);outline:none}
+.form .label{display:block;color:var(--muted);margin-bottom:6px}
+.form-actions{display:flex;gap:10px;align-items:center;margin-top:10px}
+
+/* resume and quick links */
+.resume h3{margin-top:0}
+.skills{list-style:none;padding:0;margin:12px 0}
+.skills li{margin-bottom:6px}
+.quick-links a{display:block;margin-bottom:8px}
+
+/* footer */
+.footer-card{display:flex;justify-content:space-between;align-items:center}
+.small{font-size:13px}
+.muted{color:var(--muted)}
+
+/* ---------- small screens ---------- */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .hero-right{order:-1}
+  .header-inner{flex-direction:column;align-items:flex-start;gap:12px}
+}
+
+/* ---------- very small ---------- */
+@media (max-width:480px){
+  body{padding:18px 12px}
+  .logo{width:48px;height:48px}
+  .avatar{width:120px;height:120px}
+  .site-nav{gap:8px}
+  .project-grid{grid-template-columns:1fr}
+}
+
+/* subtle hover neon outline */
+.project-card:hover, .project:hover{
+  box-shadow: 0 6px 30px rgba(4,12,30,0.6), 0 0 18px rgba(124,58,237,0.06);
+}
+
+/* small transitions for all */
+*{transition: all .18s ease;}

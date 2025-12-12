@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Raiku — About</title>
+  <meta name="description" content="Raiku (Lhoel Morillo) — frontend projects, portfolio, and contact"/>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="theme-dark">
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./index.html">
+        <div class="logo">R</div>
+        <div class="brand-text">
+          <h1>Raiku</h1>
+          <p class="muted">Frontend developer • BSCS student</p>
+        </div>
+      </a>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="./index.html" class="nav-link active">Home</a>
+        <a href="./projects.html" class="nav-link">Projects</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap main-grid">
+    <!-- Hero / About -->
+    <section class="card hero">
+      <div class="hero-left">
+        <h2>Hi — I'm <span class="accent">Raiku</span></h2>
+        <p class="lead">I build interactive frontend projects, learning through making. I like clean UI, subtle motion, and creative tools that help artists & students stay productive.</p>
+
+        <div class="meta-row">
+          <div>
+            <strong>Role</strong>
+            <div class="muted">Frontend Developer / BSCS</div>
+          </div>
+          <div>
+            <strong>Location</strong>
+            <div class="muted">Philippines</div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="./projects.html">View Projects</a>
+          <a class="btn ghost" href="./contact.html">Contact / Resume</a>
+        </div>
+
+        <div class="social-row">
+          <a href="https://github.com/Raiku99x" target="_blank" class="link-under">GitHub</a>
+          <a href="#" class="link-under">LinkedIn</a>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="avatar-wrap">
+          <img src="./assets/profile.jpg" alt="Profile photo" class="avatar"/>
+        </div>
+
+        <div class="glass-box">
+          <h4>Quick stats</h4>
+          <ul class="stats">
+            <li><strong>5</strong><span class="muted">projects</span></li>
+            <li><strong>3</strong><span class="muted">languages</span></li>
+            <li><strong>100%</strong><span class="muted">responsive</span></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Featured project -->
+    <section class="card featured">
+      <h3 class="section-title">Featured — Kanban Dashboard</h3>
+      <div class="featured-body">
+        <p class="muted">A lightweight and accessible Kanban board. A clean UI with localStorage persistence.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://raiku99x.github.io/Kanban_Dashboard/" target="_blank">Open Live</a>
+          <a class="btn ghost" href="https://github.com/Raiku99x/Kanban_Dashboard.git" target="_blank">View Repo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Short project tiles -->
+    <section class="card grid-cards">
+      <h3 class="section-title">Other Projects</h3>
+      <div class="grid small-grid">
+
+        <article class="project-card" data-live="https://raiku99x.github.io/QUIZ_MUST/">
+          <div class="thumb"><img src="./assets/project-quiz.jpg"></div>
+          <h4>Quiz App</h4>
+          <p class="muted">Timed quizzes with categories.</p>
+        </article>
+
+        <article class="project-card" data-live="https://raiku99x.github.io/CARD_MEMORY_MATCH/">
+          <div class="thumb"><img src="./assets/project-card.jpg"></div>
+          <h4>Card Memory Match</h4>
+          <p class="muted">Single & multiplayer modes.</p>
+        </article>
+
+        <article class="project-card" data-live="https://raiku99x.github.io/POMODORO_TIMER/">
+          <div class="thumb"><img src="./assets/project-pomo.jpg"></div>
+          <h4>Pomodoro Timer</h4>
+          <p class="muted">Focus cycles + breaks.</p>
+        </article>
+
+        <article class="project-card" data-live="https://raiku99x.github.io/ARTSTREAK4_LAZYARTIST/">
+          <div class="thumb"><img src="./assets/project-streak.jpg"></div>
+          <h4>Streak Art</h4>
+          <p class="muted">Daily/weekly art streaks.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <footer class="card footer-card">
+      <p class="muted small">© Raiku — HTML/CSS Portfolio • CCCS 101 Final Project</p>
+    </footer>
+  </main>
+
+  <script>
+    // Make project tiles clickable
+    document.querySelectorAll('.project-card').forEach(card=>{
+      card.addEventListener('click', ()=> {
+        window.open(card.dataset.live, '_blank');
+      });
+    });
+
+    // Active nav link fix
+    const page = location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-link').forEach(a=>{
+      if(a.getAttribute("href").includes(page)) {
+        a.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>
