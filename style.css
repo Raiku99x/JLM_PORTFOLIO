@@ -2,7 +2,7 @@
    GLOBAL STYLES & CSS VARIABLES
    ========================================== */
 :root {
-  /* Dark Theme Colors */
+  /* Dark Theme Colors  */
   --bg-primary: #0a0e27;
   --bg-secondary: #151932;
   --bg-tertiary: #1e2439;
@@ -1816,7 +1816,8 @@ img {
     border-bottom: 1px solid var(--border);
     z-index: 999;
   }
-
+/* TGhvZWwgTW9yaWxsbyAyMDI1
+ */
   .nav-menu.active {
     left: 0;
   }
