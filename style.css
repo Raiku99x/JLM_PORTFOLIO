@@ -132,14 +132,13 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 60px;
 }
 
 .logo-circle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;  
+  width: 50px;
   height: 50px;
   border-radius: 50%;
   border: 2px solid transparent;
@@ -276,8 +275,6 @@ img {
   gap: 5px;
   cursor: pointer;
   padding: 5px;
-  justify-content: center;
-  align-items: center;
 }
 
 .hamburger span {
@@ -402,7 +399,6 @@ img {
 
 .hero-text {
   max-width: 800px;
-  padding-top: 48px; /* ← Customize this value */
 }
 
 .hero-greeting {
@@ -1836,19 +1832,10 @@ img {
     --spacing-md: 1.25rem;
   }
 
-  .hero-text {
-    padding-top: 1px; /* ← Smaller spacing on mobile */
-  }
-
   .container {
     padding: 0 var(--spacing-md);
   }
 
-  .logo-circle {
-    width: 33px;
-    height: 33px;
-  }
-  
   .hero-content {
     flex-direction: column;
     text-align: center;
