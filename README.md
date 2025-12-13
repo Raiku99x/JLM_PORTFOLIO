@@ -11,7 +11,7 @@
 
 ## 📖 About This Project
 
-This is my personal portfolio website that I built as a BSCS student to showcase my projects, skills, and academic journey. It's a simple, clean website made with HTML, CSS, and JavaScript - no fancy frameworks, just pure coding!
+This is my personal portfolio website that I built as a BSCS student to showcase my projects, skills, and academic journey. It's a simple, clean website made with HTML, CSS, and JavaScript
 
 ## 👨‍💻 About Me
 
@@ -155,14 +155,6 @@ As a student, I'm always trying to learn more:
 - All animations work best on modern browsers
 - Images folder is not included (you need to add your own)
 
-## 📱 Tested On
-
-- ✅ Chrome
-- ✅ Firefox
-- ✅ Safari
-- ✅ Edge
-- ✅ Mobile browsers
-
 ## 📞 Contact Me
 
 Want to connect or have questions?
@@ -191,8 +183,6 @@ Feel free to use this code for your own portfolio! Just remember to:
 ---
 
 <div align="center">
-
-**Made with 💙 by a BSCS Student**
 
 *Still learning, still growing, still coding!*
 
