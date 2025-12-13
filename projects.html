@@ -13,56 +13,81 @@
     document.documentElement.setAttribute('data-theme', theme);
   })();
 
-// Mobile tap functionality for project overlays
+// Mobile tap functionality for project overlays - Option 2: Single-Tap with Button Selection
 document.querySelectorAll(".project-image-full").forEach(imageContainer => {
     const overlay = imageContainer.querySelector(".project-overlay");
+    let overlayVisible = false;
     
-    // Function to show overlay
     const showOverlay = () => {
         overlay.style.opacity = "1";
         overlay.style.pointerEvents = "auto";
+        overlayVisible = true;
     };
     
-    // Function to hide overlay
     const hideOverlay = () => {
         overlay.style.opacity = "0";
         overlay.style.pointerEvents = "none";
+        overlayVisible = false;
     };
     
     // Detect if device is touch-enabled
     const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     
     if (isTouchDevice) {
-        // On mobile/touch devices
+        // Prevent default hover behavior on mobile
+        imageContainer.style.pointerEvents = "auto";
+        
+        // Handle taps on the image area
         imageContainer.addEventListener("click", (e) => {
-            // If clicking on the overlay itself or image (not buttons)
-            if (e.target === overlay || e.target === imageContainer || 
-                e.target.classList.contains("carousel") || 
-                e.target.classList.contains("carousel-image")) {
+            // Check if tap is on image/carousel (not on buttons)
+            const isImageArea = e.target === imageContainer || 
+                               e.target === overlay || 
+                               e.target.classList.contains("carousel") || 
+                               e.target.classList.contains("carousel-container") ||
+                               e.target.classList.contains("carousel-image");
+            
+            const isButton = e.target.closest(".project-btn");
+            
+            // If tapping image area (not buttons)
+            if (isImageArea && !isButton) {
+                e.preventDefault();
+                e.stopPropagation();
                 
-                // Toggle overlay visibility
-                if (overlay.style.opacity === "1") {
+                if (overlayVisible) {
+                    // If overlay is visible, hide it
                     hideOverlay();
                 } else {
+                    // If overlay is hidden, show it
                     showOverlay();
                 }
             }
+            
+            // If tapping on a button, let it work normally (navigate to link)
+            if (isButton) {
+                // Button will work normally, don't prevent default
+                return;
+            }
         });
         
-        // Hide overlay when tapping outside
+        // Hide overlay when tapping outside the image container
         document.addEventListener("click", (e) => {
-            if (!imageContainer.contains(e.target)) {
+            if (!imageContainer.contains(e.target) && overlayVisible) {
                 hideOverlay();
             }
         });
         
-        // Prevent overlay from hiding when clicking buttons
-        overlay.addEventListener("click", (e) => {
-            if (e.target.closest(".project-btn")) {
-                // Let the button link work normally
-                return;
+        // Prevent carousel controls from hiding overlay
+        const carouselPrev = imageContainer.querySelector(".carousel-prev");
+        const carouselNext = imageContainer.querySelector(".carousel-next");
+        const carouselDots = imageContainer.querySelectorAll(".carousel-dot");
+        
+        [carouselPrev, carouselNext, ...carouselDots].forEach(control => {
+            if (control) {
+                control.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    // Keep overlay visible when using carousel controls
+                });
             }
-            e.stopPropagation();
         });
     }
 });
