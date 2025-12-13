@@ -134,22 +134,30 @@ img {
   align-items: center;
 }
 
-.logo {
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
-  font-weight: 800;
+.logo-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid transparent;
   background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  padding: 2px;
   transition: transform var(--transition-fast);
+  overflow: hidden;
 }
 
-.logo:hover {
-  transform: scale(1.05);
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: var(--bg-primary);
 }
 
-.logo span {
-  color: var(--accent-primary);
+.logo-circle:hover {
+  transform: scale(1.1);
 }
 
 .nav-menu {
@@ -1510,20 +1518,20 @@ img {
    ========================================== */
 .footer {
   background: var(--bg-secondary);
-  padding: var(--spacing-2xl) 0 var(--spacing-lg) 0;
+  padding: var(--spacing-lg) 0 var(--spacing-md) 0;
   border-top: 1px solid var(--border);
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-xl);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
 }
 
 .footer-section h3 {
-  font-size: 1.41601rem;
-  margin-bottom: var(--spacing-md);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1531,34 +1539,47 @@ img {
 }
 
 .footer-section h4 {
-  font-size: 1.13299rem;
-  margin-bottom: var(--spacing-md);
+  font-size: 0.95rem;
+  margin-bottom: var(--spacing-sm);
   color: var(--text-primary);
 }
 
 .footer-section p {
   color: var(--text-secondary);
-  line-height: 1.7;
-  font-size: 1.03857rem;
+  line-height: 1.5;
+  font-size: 0.85rem;
 }
 
 .footer-section a {
-  display: block;
+  display: inline-block;
   color: var(--text-secondary);
-  margin-bottom: var(--spacing-xs);
+  margin: 0 1rem 0.5rem 1rem;
   transition: color var(--transition-fast);
+  font-size: 0.85rem;
 }
 
 .footer-section a:hover {
   color: var(--accent-primary);
-  padding-left: 5px;
+  transform: translateY(-2px);
+  padding-left: 0;
+}
+
+.footer-section:nth-child(2),
+.footer-section:nth-child(3) {
+  text-align: center;
+}
+
+.footer-section:nth-child(2) a,
+.footer-section:nth-child(3) a {
+  display: inline-block;
 }
 
 .footer-bottom {
   text-align: center;
-  padding-top: var(--spacing-lg);
+  padding-top: var(--spacing-sm);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
+  font-size: 0.8rem;
 }
 
 /* ==========================================
@@ -1726,6 +1747,21 @@ img {
     height: 160px;
   }
 
+  .footer-section a {
+  display: block;
+  margin: 0 var(--spacing-xs);
+  margin-bottom: 0.4rem;
+}
+
+.footer-section a:hover {
+  padding-left: 5px;
+  transform: none;
+}
+
+.footer-section:nth-child(2),
+.footer-section:nth-child(3) {
+  text-align: center;
+}
   /* Navigation */
   .nav-menu {
     position: fixed;
@@ -1968,18 +2004,27 @@ img {
 
   /* Footer */
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-    text-align: center;
-  }
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+  text-align: center;
+}
 
-  .footer-section h3 {
-    font-size: 1.3rem;
-  }
+.footer-section h3 {
+  font-size: 1rem;
+}
 
-  .footer-section h4 {
-    font-size: 1.1rem;
-  }
+.footer-section h4 {
+  font-size: 0.9rem;
+}
+
+.footer-section p {
+  font-size: 0.8rem;
+}
+
+.footer-section a {
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
 
   .footer-section a {
     display: inline-block;
