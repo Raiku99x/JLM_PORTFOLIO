@@ -37,7 +37,7 @@ Hi! I'm **John Lhoel**, a Computer Science student who loves building things on 
 **Languages:**
 - HTML5
 - CSS3
-- JavaScript (Vanilla - no libraries!)
+- JavaScript
 
 **What I Learned:**
 - CSS Grid & Flexbox for layouts
