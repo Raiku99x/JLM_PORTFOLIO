@@ -1902,6 +1902,16 @@ img {
     display: flex;
   }
 
+  /* Make logo same size as hamburger on mobile */
+  .logo-circle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .nav-container {
+    align-items: center;
+  }
+
 .theme-toggle {
   width: 60px;
   height: 30px;
