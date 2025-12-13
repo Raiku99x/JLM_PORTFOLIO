@@ -6,6 +6,130 @@
     <title>Projects | John Lhoe Morillo</title>
     <link rel="stylesheet" href="style.css">
     <script>
+    
+// Mobile tap functionality for project overlays
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll(".project-image-full").forEach(imageContainer => {
+        const overlay = imageContainer.querySelector(".project-overlay");
+        const buttons = overlay.querySelectorAll(".project-btn");
+        let overlayVisible = false;
+        let buttonsReady = false;
+        
+        const showOverlay = () => {
+            // Show overlay immediately
+            overlay.style.opacity = "1";
+            overlay.style.pointerEvents = "auto";
+            overlayVisible = true;
+            buttonsReady = false;
+            
+            // Disable buttons and reset their state
+            buttons.forEach((btn, index) => {
+                btn.style.opacity = "0";
+                btn.style.transform = "translateY(20px)";
+                btn.style.pointerEvents = "none";
+                btn.style.transition = "all 0.4s ease";
+                
+                // Stagger the button animations
+                setTimeout(() => {
+                    btn.style.opacity = "1";
+                    btn.style.transform = "translateY(0)";
+                }, 200 + (index * 150)); // 200ms delay, then 150ms between each button
+            });
+            
+            // Enable buttons after ALL animations complete
+            // First button: 200ms + 400ms animation = 600ms
+            // Second button: 350ms + 400ms animation = 750ms
+            // Add 100ms buffer = 850ms total
+            setTimeout(() => {
+                buttons.forEach(btn => {
+                    btn.style.pointerEvents = "auto";
+                });
+                buttonsReady = true;
+            }, 850);
+        };
+        
+        const hideOverlay = () => {
+            // Fade out overlay
+            overlay.style.opacity = "0";
+            
+            // Wait for fade out, then disable pointer events
+            setTimeout(() => {
+                overlay.style.pointerEvents = "none";
+                overlayVisible = false;
+                buttonsReady = false;
+                
+                // Reset button states for next time
+                buttons.forEach(btn => {
+                    btn.style.opacity = "0";
+                    btn.style.transform = "translateY(20px)";
+                    btn.style.pointerEvents = "none";
+                });
+            }, 400); // Match CSS transition duration
+        };
+        
+        // Detect if device is touch-enabled
+        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+        
+        if (isTouchDevice) {
+            // Handle taps on the image area
+            imageContainer.addEventListener("click", (e) => {
+                // Check if tap is on image/carousel (not on buttons)
+                const isImageArea = e.target === imageContainer || 
+                                   e.target === overlay || 
+                                   e.target.classList.contains("carousel") || 
+                                   e.target.classList.contains("carousel-container") ||
+                                   e.target.classList.contains("carousel-image");
+                
+                const isButton = e.target.closest(".project-btn");
+                
+                // If tapping image area (not buttons)
+                if (isImageArea && !isButton) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (overlayVisible) {
+                        hideOverlay();
+                    } else {
+                        showOverlay();
+                    }
+                }
+                
+                // If tapping on a button
+                if (isButton) {
+                    if (buttonsReady) {
+                        // Allow button to work normally
+                        return;
+                    } else {
+                        // Prevent click if buttons aren't ready yet
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                }
+            });
+            
+            // Hide overlay when tapping outside
+            document.addEventListener("click", (e) => {
+                if (!imageContainer.contains(e.target) && overlayVisible) {
+                    hideOverlay();
+                }
+            });
+            
+            // Prevent carousel controls from hiding overlay
+            const carouselPrev = imageContainer.querySelector(".carousel-prev");
+            const carouselNext = imageContainer.querySelector(".carousel-next");
+            const carouselDots = imageContainer.querySelectorAll(".carousel-dot");
+            
+            [carouselPrev, carouselNext, ...carouselDots].forEach(control => {
+                if (control) {
+                    control.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                    });
+                }
+            });
+        }
+    });
+});
+
   (function() {
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -13,113 +137,6 @@
     document.documentElement.setAttribute('data-theme', theme);
   })();
 
-// Mobile tap functionality for project overlays
-document.querySelectorAll(".project-image-full").forEach(imageContainer => {
-    const overlay = imageContainer.querySelector(".project-overlay");
-    const buttons = overlay.querySelectorAll(".project-btn");
-    let overlayVisible = false;
-    let buttonsReady = false;
-    
-    const showOverlay = () => {
-        // Remove hide class and add show class
-        overlay.classList.remove("hide");
-        overlay.classList.add("show");
-        overlayVisible = true;
-        buttonsReady = false;
-        
-        // Reset button animations
-        buttons.forEach(btn => {
-            btn.style.opacity = "0";
-            btn.style.transform = "translateY(20px)";
-            btn.style.pointerEvents = "none";
-        });
-        
-        // Enable buttons after animation completes (0.4s + 0.2s delay = 0.6s)
-        setTimeout(() => {
-            buttons.forEach(btn => {
-                btn.style.pointerEvents = "auto";
-            });
-            buttonsReady = true;
-        }, 600);
-    };
-    
-    const hideOverlay = () => {
-        // Add hide class and remove show class
-        overlay.classList.add("hide");
-        overlay.classList.remove("show");
-        
-        // Wait for fade out animation to complete before fully hiding
-        setTimeout(() => {
-            overlayVisible = false;
-            buttonsReady = false;
-        }, 400);
-    };
-    
-    // Detect if device is touch-enabled
-    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-    
-    if (isTouchDevice) {
-        // Prevent default hover behavior on mobile
-        imageContainer.style.pointerEvents = "auto";
-        
-        // Handle taps on the image area
-        imageContainer.addEventListener("click", (e) => {
-            // Check if tap is on image/carousel (not on buttons)
-            const isImageArea = e.target === imageContainer || 
-                               e.target === overlay || 
-                               e.target.classList.contains("carousel") || 
-                               e.target.classList.contains("carousel-container") ||
-                               e.target.classList.contains("carousel-image");
-            
-            const isButton = e.target.closest(".project-btn");
-            
-            // If tapping image area (not buttons)
-            if (isImageArea && !isButton) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                if (overlayVisible) {
-                    // If overlay is visible, hide it
-                    hideOverlay();
-                } else {
-                    // If overlay is hidden, show it with staggered animation
-                    showOverlay();
-                }
-            }
-            
-            // If tapping on a button, only allow if animation is complete
-            if (isButton && buttonsReady) {
-                // Button will work normally
-                return;
-            } else if (isButton && !buttonsReady) {
-                // Prevent click if buttons aren't ready yet
-                e.preventDefault();
-                e.stopPropagation();
-            }
-        });
-        
-        // Hide overlay when tapping outside the image container
-        document.addEventListener("click", (e) => {
-            if (!imageContainer.contains(e.target) && overlayVisible) {
-                hideOverlay();
-            }
-        });
-        
-        // Prevent carousel controls from hiding overlay
-        const carouselPrev = imageContainer.querySelector(".carousel-prev");
-        const carouselNext = imageContainer.querySelector(".carousel-next");
-        const carouselDots = imageContainer.querySelectorAll(".carousel-dot");
-        
-        [carouselPrev, carouselNext, ...carouselDots].forEach(control => {
-            if (control) {
-                control.addEventListener("click", (e) => {
-                    e.stopPropagation();
-                    // Keep overlay visible when using carousel controls
-                });
-            }
-        });
-    }
-});
 
 </script>
 </head>
