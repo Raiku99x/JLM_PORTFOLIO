@@ -13,21 +13,46 @@
     document.documentElement.setAttribute('data-theme', theme);
   })();
 
-// Mobile tap functionality for project overlays - Option 2: Single-Tap with Button Selection
+// Mobile tap functionality for project overlays
 document.querySelectorAll(".project-image-full").forEach(imageContainer => {
     const overlay = imageContainer.querySelector(".project-overlay");
+    const buttons = overlay.querySelectorAll(".project-btn");
     let overlayVisible = false;
+    let buttonsReady = false;
     
     const showOverlay = () => {
-        overlay.style.opacity = "1";
-        overlay.style.pointerEvents = "auto";
+        // Remove hide class and add show class
+        overlay.classList.remove("hide");
+        overlay.classList.add("show");
         overlayVisible = true;
+        buttonsReady = false;
+        
+        // Reset button animations
+        buttons.forEach(btn => {
+            btn.style.opacity = "0";
+            btn.style.transform = "translateY(20px)";
+            btn.style.pointerEvents = "none";
+        });
+        
+        // Enable buttons after animation completes (0.4s + 0.2s delay = 0.6s)
+        setTimeout(() => {
+            buttons.forEach(btn => {
+                btn.style.pointerEvents = "auto";
+            });
+            buttonsReady = true;
+        }, 600);
     };
     
     const hideOverlay = () => {
-        overlay.style.opacity = "0";
-        overlay.style.pointerEvents = "none";
-        overlayVisible = false;
+        // Add hide class and remove show class
+        overlay.classList.add("hide");
+        overlay.classList.remove("show");
+        
+        // Wait for fade out animation to complete before fully hiding
+        setTimeout(() => {
+            overlayVisible = false;
+            buttonsReady = false;
+        }, 400);
     };
     
     // Detect if device is touch-enabled
@@ -57,15 +82,19 @@ document.querySelectorAll(".project-image-full").forEach(imageContainer => {
                     // If overlay is visible, hide it
                     hideOverlay();
                 } else {
-                    // If overlay is hidden, show it
+                    // If overlay is hidden, show it with staggered animation
                     showOverlay();
                 }
             }
             
-            // If tapping on a button, let it work normally (navigate to link)
-            if (isButton) {
-                // Button will work normally, don't prevent default
+            // If tapping on a button, only allow if animation is complete
+            if (isButton && buttonsReady) {
+                // Button will work normally
                 return;
+            } else if (isButton && !buttonsReady) {
+                // Prevent click if buttons aren't ready yet
+                e.preventDefault();
+                e.stopPropagation();
             }
         });
         
@@ -124,7 +153,7 @@ document.querySelectorAll(".project-image-full").forEach(imageContainer => {
             <h1 class="page-title">My Projects</h1>
             <p class="page-description">A collection of my work that shows my web development skills and creative problem-solving. These projects are built using HTML, CSS, and JavaScript, focusing on simple, clean, and interactive designs.
 
-            </br><i>Hover over an image to view the project.</i></p>
+            </br><i>Click over an image to view the project.</i></p>
         </div>
     </section>
 
