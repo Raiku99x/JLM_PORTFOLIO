@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Projects | John Lhoel Morillo</title>
+    <title>Projects | John Lhoe Morillo</title>
     <link rel="stylesheet" href="style.css">
     <script>
   (function() {
@@ -12,6 +12,61 @@
     const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
   })();
+
+// Mobile tap functionality for project overlays
+document.querySelectorAll(".project-image-full").forEach(imageContainer => {
+    const overlay = imageContainer.querySelector(".project-overlay");
+    
+    // Function to show overlay
+    const showOverlay = () => {
+        overlay.style.opacity = "1";
+        overlay.style.pointerEvents = "auto";
+    };
+    
+    // Function to hide overlay
+    const hideOverlay = () => {
+        overlay.style.opacity = "0";
+        overlay.style.pointerEvents = "none";
+    };
+    
+    // Detect if device is touch-enabled
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    
+    if (isTouchDevice) {
+        // On mobile/touch devices
+        imageContainer.addEventListener("click", (e) => {
+            // If clicking on the overlay itself or image (not buttons)
+            if (e.target === overlay || e.target === imageContainer || 
+                e.target.classList.contains("carousel") || 
+                e.target.classList.contains("carousel-image")) {
+                
+                // Toggle overlay visibility
+                if (overlay.style.opacity === "1") {
+                    hideOverlay();
+                } else {
+                    showOverlay();
+                }
+            }
+        });
+        
+        // Hide overlay when tapping outside
+        document.addEventListener("click", (e) => {
+            if (!imageContainer.contains(e.target)) {
+                hideOverlay();
+            }
+        });
+        
+        // Prevent overlay from hiding when clicking buttons
+        overlay.addEventListener("click", (e) => {
+            if (e.target.closest(".project-btn")) {
+                // Let the button link work normally
+                return;
+            }
+            e.stopPropagation();
+        });
+    }
+});
+
 </script>
 </head>
 <body>
@@ -504,7 +559,54 @@ initializeTheme();
             // Initialize first image
             showImage(0);
         });
-    </script>
-</body>
 
+        // ↓↓↓ ADD THE NEW CODE HERE ↓↓↓
+        
+        // Mobile tap functionality for project overlays
+        document.querySelectorAll(".project-image-full").forEach(imageContainer => {
+            const overlay = imageContainer.querySelector(".project-overlay");
+            
+            const showOverlay = () => {
+                overlay.style.opacity = "1";
+                overlay.style.pointerEvents = "auto";
+            };
+            
+            const hideOverlay = () => {
+                overlay.style.opacity = "0";
+                overlay.style.pointerEvents = "none";
+            };
+            
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            
+            if (isTouchDevice) {
+                imageContainer.addEventListener("click", (e) => {
+                    if (e.target === overlay || e.target === imageContainer || 
+                        e.target.classList.contains("carousel") || 
+                        e.target.classList.contains("carousel-image")) {
+                        
+                        if (overlay.style.opacity === "1") {
+                            hideOverlay();
+                        } else {
+                            showOverlay();
+                        }
+                    }
+                });
+                
+                document.addEventListener("click", (e) => {
+                    if (!imageContainer.contains(e.target)) {
+                        hideOverlay();
+                    }
+                });
+                
+                overlay.addEventListener("click", (e) => {
+                    if (e.target.closest(".project-btn")) {
+                        return;
+                    }
+                    e.stopPropagation();
+                });
+            }
+        });
+        
+    </script> 
+</body>
 </html>
