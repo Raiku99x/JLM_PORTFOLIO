@@ -660,7 +660,7 @@ img {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(6, 1fr);
   gap: var(--spacing-lg);
   margin-top: var(--spacing-xl);
 }
@@ -1715,9 +1715,9 @@ img {
   .about-content {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
-
+  
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1762,6 +1762,12 @@ img {
 .footer-section:nth-child(3) {
   text-align: center;
 }
+
+.skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
   /* Navigation */
   .nav-menu {
     position: fixed;
@@ -2158,7 +2164,7 @@ img {
   }
 
   .skills-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-sm);
   }
 
