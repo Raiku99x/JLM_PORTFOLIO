@@ -132,13 +132,14 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 60px;
 }
 
 .logo-circle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  width: 50px;  
   height: 50px;
   border-radius: 50%;
   border: 2px solid transparent;
@@ -275,6 +276,8 @@ img {
   gap: 5px;
   cursor: pointer;
   padding: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .hamburger span {
@@ -399,6 +402,7 @@ img {
 
 .hero-text {
   max-width: 800px;
+  padding-top: 48px; /* ← Customize this value */
 }
 
 .hero-greeting {
@@ -994,19 +998,94 @@ img {
   transform: scale(1.3);
 }
 
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
+.project-btn {
+  display: inline-flex;
   align-items: center;
+  gap: var(--spacing-xs);
+  padding: 1rem 2rem;
+  background: var(--accent-gradient);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
   justify-content: center;
   opacity: 0;
-  transition: opacity var(--transition-base);
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.project-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-overlay.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.project-btn {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: auto;
+}
+
+/* Only apply initial hidden state on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .project-btn {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+  }
+}
+
+.project-overlay.show .project-btn:nth-child(1) {
+  animation: slideUpFadeIn 0.3s ease forwards;
+  animation-delay: 0.1s;
+}
+
+.project-overlay.show .project-btn:nth-child(2) {
+  animation: slideUpFadeIn 0.3s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes slideUpFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.project-overlay.hide .project-btn {
+  animation: fadeOut 0.2s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
 
 .project-image-full:hover .project-overlay {
   opacity: 1;
+  pointer-events: auto;
+}
+
+.project-image-full:hover .project-overlay .project-btn {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .project-links {
@@ -1761,10 +1840,19 @@ img {
     --spacing-md: 1.25rem;
   }
 
+  .hero-text {
+    padding-top: 1px; /* ← Smaller spacing on mobile */
+  }
+
   .container {
     padding: 0 var(--spacing-md);
   }
 
+  .logo-circle {
+    width: 33px;
+    height: 33px;
+  }
+  
   .hero-content {
     flex-direction: column;
     text-align: center;
